@@ -27,6 +27,12 @@ app.get('/', (req, res) => {
   console.log('express is running, can you catch it?');
 });
 
+const eventsData = require('./data/events.json');
+
+app.get('/events', (req, res) => {
+  res.json(eventsData);
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
