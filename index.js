@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');  // Change this line
-
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 8081;
 
@@ -11,6 +11,8 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD || 'rootroot',
   database: process.env.DB_NAME || 'INDUSTRY_PROJECT_DB',
 });
+
+app.use(cors());
 
 // Connect to the database
 db.connect((err) => {
